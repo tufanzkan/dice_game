@@ -14,6 +14,7 @@ at.addEventListener('click',game);
 ng.addEventListener('click',newg);
 
 function game(e){
+    finish();
 
     plyimg.remove();
     cmpimg.remove();
@@ -27,7 +28,6 @@ function game(e){
 	let cmprast=cmpdizi[cmprastind];
 
     console.log(plyrast,cmprast)
-
     
     if (plyrast==1) {
         
@@ -157,20 +157,24 @@ function finish(e){
 
     if (plsay>=50 && cmpsay<50) {
         alert("GAME OVER.. PLAYER ONE WON!!");
+        newg();
         
     } else if(cmpsay>=50 && plsay<50) {
         alert("GAME OVER.. PLAYER TWO WON!!");
+        newg();
         
     } else if(plsay>=50 && cmpsay>=50 && plsay>cmpsay){
         alert("GAME OVER.. PLAYER ONE WON!!");
+        newg();
 
     } else if(plsay>=50 && cmpsay>=50 && cmpsay>plsay){
         alert("GAME OVER.. PLAYER TWO WON!!");
+        newg();
 
     } else if(plsay>=50 && cmpsay>=50 && plsay==cmpsay){
         alert("GAME OVER.. DRAW!!");
+        newg();
     }
-    newg();
 }
 
 function newg(e){
