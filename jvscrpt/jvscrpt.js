@@ -10,14 +10,18 @@ let cmps= document.querySelector("#cmpscore");
 let plsay=0;
 let cmpsay=0;
 
-at.addEventListener('click',game);
 ng.addEventListener('click',newg);
+at.addEventListener('click',game);
 
 function game(e){
-    finish();
 
     plyimg.remove();
     cmpimg.remove();
+
+    if (plsay>=50 || cmpsay>=50) {
+        alert("GAME OVER.. PLEASE CLICK NEWGAME BUTTON")
+        finish();
+    }
 
     let plydizi= [1,2,3,4,5,6];
     let plyrastind = Math.floor(Math.random() * plydizi.length);
@@ -151,29 +155,29 @@ function game(e){
         cmpsay+=cmprast;
         cmps.textContent=cmpsay;
     }
+    finish();
 }
-
 function finish(e){
 
     if (plsay>=50 && cmpsay<50) {
         alert("GAME OVER.. PLAYER ONE WON!!");
-        newg();
+        bos();
         
     } else if(cmpsay>=50 && plsay<50) {
         alert("GAME OVER.. PLAYER TWO WON!!");
-        newg();
+        bos();
         
     } else if(plsay>=50 && cmpsay>=50 && plsay>cmpsay){
         alert("GAME OVER.. PLAYER ONE WON!!");
-        newg();
+        bos();
 
     } else if(plsay>=50 && cmpsay>=50 && cmpsay>plsay){
         alert("GAME OVER.. PLAYER TWO WON!!");
-        newg();
+        bos();
 
     } else if(plsay>=50 && cmpsay>=50 && plsay==cmpsay){
         alert("GAME OVER.. DRAW!!");
-        newg();
+        bos();
     }
 }
 
